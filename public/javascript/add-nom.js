@@ -1,10 +1,10 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
+  const title = document.querySelector('input[name="nom-title"]').value;
 // need all variables
 
-  const response = await fetch(`/api/posts`, {
+  const response = await fetch(`/api/noms`, {
     method: "POST",
     body: JSON.stringify({
       title,
@@ -23,5 +23,5 @@ async function newFormHandler(event) {
 }
 
 document
-  .querySelector(".new-post-form")
+  .querySelector(".new-nom-form")
   .addEventListener("submit", newFormHandler);
