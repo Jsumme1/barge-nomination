@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/Jsumme1/barge-nomination#readme",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "express-handlebars": "^6.0.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.12.0-alpha.1"
   }
