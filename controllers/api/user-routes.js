@@ -22,15 +22,15 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Nomination,
-        attributes: ["id", "title", "post_url", "created_at"],
+        attributes: ["id", "barge_name", "move_date", "quantity", "product_name", "tank_number", "inspector_name", "counterparty_name", "created_at"],
       },
       {
         model: Comment,
         attributes: ["id", "comment_text", "created_at"],
-        include: {
-          model: Nomination,
-          attributes: ["title"],
-        },
+        // include: {
+        //   model: Nomination,
+        //   attributes: ["title"],
+        // },
       },
     ],
   })

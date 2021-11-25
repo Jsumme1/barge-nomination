@@ -1,5 +1,4 @@
-const sequelize = require("../config/connection");
-const { User, Post } = require("../models");
+const { Nomination } = require("../models");
 
 //  nomination fields to be drop down:
 // product_name: regular gasoline, premium gasoline, blendstocks
@@ -37,3 +36,7 @@ const nomdata = [
     couterparty_name: "Inspectorate",
   },
 ];
+
+const seedNominations = () => Nomination.bulkCreate(nomdata);
+
+module.exports = seedNominations;

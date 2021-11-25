@@ -1,27 +1,15 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Post, User, Comment, Vote } = require("../models");
+const { Nomination, User, Comment } = require("../models");
 
 // get all posts for homepage
 router.get("/", (req, res) => {
   console.log("======================");
-  Post.findAll({
-    attributes: [
-      "id",
-      "post_url",
-      "title",
-      "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-        ),
-        "vote_count",
-      ],
-    ],
+  Nomination.findAll({
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "nomination_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -33,8 +21,8 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
+    .then((dbNominationData) => {
+      const noms = dbNominationData.map((nom) => nom.get({ plain: true }));
 
       res.render("homepage", {
         posts,
@@ -47,28 +35,22 @@ router.get("/", (req, res) => {
     });
 });
 
-// get single post
-router.get("/post/:id", (req, res) => {
-  Post.findOne({
+// get single nom
+router.get("/nomination/:id", (req, res) => {
+  Nomination.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: [
-      "id",
-      "post_url",
-      "title",
-      "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-        ),
-        "vote_count",
-      ],
-    ],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: [
+          "id",
+          "comment_text",
+          "nomination_id",
+          "user_id",
+          "created_at",
+        ],
         include: {
           model: User,
           attributes: ["username"],
@@ -80,16 +62,16 @@ router.get("/post/:id", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbNominationData) => {
+      if (!dbNominationData) {
         res.status(404).json({ message: "No post found with this id" });
         return;
       }
 
-      const post = dbPostData.get({ plain: true });
+      const nom = dbNominationData.get({ plain: true });
 
       res.render("single-post", {
-        post,
+        nom,
         loggedIn: req.session.loggedIn,
       });
     })
