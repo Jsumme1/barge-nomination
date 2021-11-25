@@ -1,7 +1,7 @@
- const sequelize = require('../config/connection');
-const { User, Post } = require('../models');
 
-//  role should be drop down - scheduler, inspector, terminal
+const { seedUser } = require('./models');
+
+
 
 const userdata = [
   {
@@ -29,3 +29,6 @@ const userdata = [
   },
 
 ];
+
+
+module.exports = seedUser;
