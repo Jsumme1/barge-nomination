@@ -2,6 +2,7 @@ const { User } = require("../models");
 
 const userdata = [
   {
+    username: "jsumme2",
     firstname: "Julie",
     lastname: "Summers",
     role: "scheduler",
@@ -10,6 +11,7 @@ const userdata = [
   },
 
   {
+    username: "Vmillan2",
     firstname: "Vinny",
     lastname: "Millan",
     role: "inspector",
@@ -18,6 +20,7 @@ const userdata = [
   },
 
   {
+    username: "jmillhou2",
     firstname: "John",
     lastname: "Millhouse",
     role: "terminal",
