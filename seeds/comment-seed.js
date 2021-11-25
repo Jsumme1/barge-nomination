@@ -16,4 +16,8 @@ const commentdata = [
     user_id: 3,
     nomination_id: 3
   },
-]
+];
+
+const seedComments = () => Comment.bulkCreate(commentdata);
+
+module.exports = seedComments;

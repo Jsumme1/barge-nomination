@@ -1,18 +1,20 @@
-const seedComment = require('./comment-seeds.js');
-const seedNomination = require('./nom-seeds');
-const seedUsers = require('./user-seeds');
+const seedComments = require('./comment-seed.js');
+const seedNominations = require('./nom-seed');
+const seedUsers = require('./user-seed');
 
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
+   await sequelize.sync({ force: true });
+   console.log("--------------");
 
   await seedUsers();
   console.log('\n----- USERS SEEDED -----\n');
 
-  await seedNomination();
+  await seedNominations();
   console.log('\n----- NOMINATION SEEDED -----\n');
 
-  await seedComment();
+  await seedComments();
   console.log('\n----- COMMENT SEEDED -----\n');
 
   process.exit(0);
