@@ -1,7 +1,8 @@
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
-const exphbs = require("express-handlebars");
+
+const { engine } = require("express-handlebars");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,11 +20,15 @@ const sess = {
   }),
 };
 
+// Set Handlebars as the default template engine.
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+app.set("views", "./views");
+
+
 app.use(session(sess));
 
-// Set Handlebars as the default template engine.
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
