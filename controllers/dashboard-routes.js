@@ -16,7 +16,7 @@ router.get('/', withAuth, (req, res) => {
         attributes: ['id', 'comment_text', 'nomination_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['last_name']
+          attributes: ['last_name', 'first_name', 'role', 'email', 'password']
         }
       },
       {
@@ -43,13 +43,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
         attributes: ['id', 'comment_text', 'nomination_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['last_name']
+          attributes: ['last_name', 'first_name', 'role', 'email', 'password']
+        
         }
       },
-      {
-        model: User,
-        attributes: ['last_name']
-      }
     ]
   })
     .then(dbNominationData => {
