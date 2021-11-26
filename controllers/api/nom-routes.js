@@ -6,20 +6,20 @@ const withAuth = require("../../utils/auth");
 router.get("/", (req, res) => {
   console.log("======================");
   Nomination.findAll({
-    // include: [
-    //   {
-    //     model: Comment,
-    //     attributes: ["id", "comment_text", "nomination_id", "user_id", "created_at"],
-    //     include: {
-    //       model: User,
-    //       attributes: ["last_name"],
-    //     },
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ["last_name"],
-    //   },
-    // ],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "nomination_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
   })
     .then((dbNominationData) => res.json(dbNominationData))
     .catch((err) => {
@@ -33,20 +33,20 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    // include: [
-    //   {
-    //     model: Comment,
-    //     attributes: ["id", "comment_text", "nomination_id", "user_id", "created_at"],
-    //     include: {
-    //       model: User,
-    //       attributes: ["last_name"],
-    //     },
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ["last_name"],
-    //   },
-    // ],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "nomination_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["last_name"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["last_name"],
+      },
+    ],
   })
     .then((dbNominationData) => {
       if (!dbNominationData) {

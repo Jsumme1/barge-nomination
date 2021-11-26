@@ -2,7 +2,7 @@ const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Nomination, User, Comment } = require("../models");
 
-// get all posts for homepage
+// get all nominations for homepage
 router.get("/", (req, res) => {
   console.log("======================");
   Nomination.findAll({
