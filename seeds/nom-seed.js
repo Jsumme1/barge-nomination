@@ -7,6 +7,7 @@ const { Nomination } = require("../models");
 
 const nomdata = [
   {
+    title: "RTC 107 Loading RBOB 11.25.21",
     barge_name: "RTC 107",
     move_date: 11 / 25 / 2021,
     quantity: 10000,
@@ -17,6 +18,7 @@ const nomdata = [
   },
 
   {
+    title: "DS 504 Loading RBOB 11.26.21",
     barge_name: "DS 504",
     move_date: 11 / 26 / 2021,
     quantity: 50000,
@@ -27,6 +29,7 @@ const nomdata = [
   },
 
   {
+    title: "DBL 101 Loading PBOB 11.28.21",
     barge_name: "DBL 101",
     move_date: 11 / 28 / 2021,
     quantity: 75000,

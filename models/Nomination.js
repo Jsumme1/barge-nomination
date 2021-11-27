@@ -11,6 +11,13 @@ Nomination.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [5],
+      },
+      
     barge_name: {
       type: DataTypes.STRING,
       allowNull: false,
