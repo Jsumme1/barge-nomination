@@ -12,12 +12,12 @@ router.get("/", (req, res) => {
         attributes: ["id", "comment_text", "nomination_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ["last_name"],
+          attributes: ["username"],
         },
       },
       {
         model: User,
-        attributes: ["last_name"],
+        attributes: ["username"],
       },
     ],
   })
@@ -39,12 +39,12 @@ router.get("/:id", (req, res) => {
         attributes: ["id", "comment_text", "nomination_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ["last_name"],
+          attributes: ["username"],
         },
       },
       {
         model: User,
-        attributes: ["last_name"],
+        attributes: ["username"],
       },
     ],
   })
@@ -62,10 +62,10 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", withAuth, (req, res) => {
-  Nomination.create({
-      title: req.body.title,
-      user_id: req.session.user_id,
-    })
+  Nomination.create(
+    req.body
+    //  { user_id: req.session.user_id,}
+  )
     .then((dbNominationData) => res.json(dbNominationData))
     .catch((err) => {
       console.log(err);
@@ -73,17 +73,17 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
+
 router.put("/:id", withAuth, (req, res) => {
   Nomination.update(
-      {
-        title: req.body.title,
+    req.body,
+
+    {
+      where: {
+        id: req.params.id,
       },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    )
+    }
+  )
     .then((dbNominationData) => {
       if (!dbNominationData) {
         res.status(404).json({ message: "No nomination found with this id" });
