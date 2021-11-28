@@ -25,7 +25,7 @@ router.get("/", (req, res) => {
       const noms = dbNominationData.map((nom) => nom.get({ plain: true }));
 
       res.render("homepage", {
-        posts,
+        noms,
         loggedIn: req.session.loggedIn,
       });
     })
