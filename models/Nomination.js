@@ -17,7 +17,8 @@ Nomination.init(
       validate: {
         len: [5],
       },
-      
+    },
+    
     barge_name: {
       type: DataTypes.STRING,
       allowNull: false,
