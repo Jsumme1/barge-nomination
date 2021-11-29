@@ -1,0 +1,14 @@
+{{#each noms}}
+Barge Name: {{barge_name}}<br/>
+Move Date: {{move_date}}<br/>
+Quantity: {{quantity}}<br/>
+Product Name: {{product_name}}<br/>
+Tank Number: {{tank_number}}<br/>
+Inspector Name: {{inspector_name}}<br/>
+Counterparty Name: {{counterparty_name}}<br/>
+<br/>
+<b>Comments: </b><br/>
+{{#each comments}}
+    {{id}} {{comment_text}} {{created_at}} {{user.username}}<br/><br/>
+{{/each}}
+{{/each}}

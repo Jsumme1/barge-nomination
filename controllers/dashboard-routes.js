@@ -7,32 +7,78 @@ router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
   Nomination.findAll({
-    where: {
+    /*where: {
       user_id: req.session.user_id
-    },
+    },*/
     include: [
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'nomination_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['last_name']
+          attributes: ['lastname']
         }
       },
       {
         model: User,
-        attributes: ['last_name']
+        attributes: ['lastname']
       }
     ]
   })
     .then(dbNominationData => {
       const noms = dbNominationData.map(nom => nom.get({ plain: true }));
-      res.render('dashboard', { noms, loggedIn: true });
+      res.render('dashboard', { 'noms': noms, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+
+// get single nom
+router.get("/nomination/:id", (req, res) => {
+  Nomination.findOne({
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Comment,
+        attributes: [
+          "id",
+          "comment_text",
+          "nomination_id",
+          "user_id",
+          "created_at",
+        ],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+      .then((dbNominationData) => {
+        if (!dbNominationData) {
+          res.status(404).json({ message: "No post found with this id" });
+          return;
+        }
+
+        const nom = dbNominationData.get({ plain: true });
+        res.render("single-nom", {
+          nom: nom,
+          loggedIn: req.session.loggedIn,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
@@ -43,12 +89,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
         attributes: ['id', 'comment_text', 'nomination_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['last_name']
+          attributes: ['lastname']
         }
       },
       {
         model: User,
-        attributes: ['last_name']
+        attributes: ['lastname']
       }
     ]
   })
