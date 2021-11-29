@@ -1,7 +1,6 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  document.getElementById('nom-title')
   const title = document.getElementById('nom-title').value.trim();
   const bargeName = document.getElementById('barge_name').value.trim();
   const moveDate = document.getElementById('move_date').value.trim();
