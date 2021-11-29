@@ -103,7 +103,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         const nom = dbNominationData.get({ plain: true });
         
         res.render('edit-nom', {
-          nom,
+          'nom':nom,
           loggedIn: true
         });
       } else {
