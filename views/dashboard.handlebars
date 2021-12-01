@@ -29,7 +29,11 @@
             <div class="form-group row">
                 <label for="product_name" class="col-sm-2 col-form-label">Product Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="product_name" minlength="5">
+                    <select class="form-control" id="product_name">
+                        <option>regular gasoline</option>
+                        <option>premium gasoline</option>
+                        <option>blendstocks</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
@@ -41,13 +45,24 @@
             <div class="form-group row">
                 <label for="inspector_name" class="col-sm-2 col-form-label">Inspector Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inspector_name" minlength="5">
+                    <select class="form-control" id="inspector_name">
+                        <option>AmSpec</option>
+                        <option>Inspectorate</option>
+                        <option>Camin</option>
+                        <option>Intertek</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="counterparty_name" class="col-sm-2 col-form-label">Counterparty Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="counterparty_name" minlength="5">
+                    <select class="form-control" id="counterparty_name">
+                        <option>Phillips 66</option>
+                        <option>BP</option>
+                        <option>Global</option>
+                        <option>GEW</option>
+                        <option>ATMI</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
@@ -65,4 +80,3 @@
 {{/each}}
 
 <script src="/javascript/add-nom.js"></script>
-

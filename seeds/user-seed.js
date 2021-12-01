@@ -1,8 +1,11 @@
-const { User } = require("../models");
+
+const sequelize = require('../config/connection');
+const { User, Nomination, Comment} = require('../models');
+
+//  role should be drop down - scheduler, inspector, terminal
 
 const userdata = [
   {
-    username: "jsumme2",
     firstname: "Julie",
     lastname: "Summers",
     role: "scheduler",
@@ -11,7 +14,6 @@ const userdata = [
   },
 
   {
-    username: "Vmillan2",
     firstname: "Vinny",
     lastname: "Millan",
     role: "inspector",
@@ -20,14 +22,15 @@ const userdata = [
   },
 
   {
-    username: "jmillhou2",
     firstname: "John",
     lastname: "Millhouse",
     role: "terminal",
     email: "john@john.com",
     password: "password123",
   },
+
 ];
 
-const seedUsers = () => User.bulkCreate(userdata, { individualHooks: true });
+const seedUsers = () => User.bulkCreate(userdata);
+
 module.exports = seedUsers;
