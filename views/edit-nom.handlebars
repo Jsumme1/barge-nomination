@@ -1,0 +1,66 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Nomination
+  </h2>
+
+    <form id="edit-nom-form">
+        <div class="form-group row">
+            <label for="nom-title" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="nom-title" minlength="5" value="{{nom.title}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="barge_name" class="col-sm-2 col-form-label">Barge Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="barge_name" minlength="5" value="{{nom.barge_name}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="move_date" class="col-sm-2 col-form-label">Move Date</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="move_date" value="{{nom.move_date}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="quantity" value="{{nom.quantity}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="product_name" class="col-sm-2 col-form-label">Product Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="product_name" minlength="5" value="{{nom.product_name}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="tank_number" class="col-sm-2 col-form-label">Tank Number</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="tank_number" minlength="1" value="{{nom.tank_number}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inspector_name" class="col-sm-2 col-form-label">Inspector Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inspector_name" minlength="5" value="{{nom.inspector_name}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="counterparty_name" class="col-sm-2 col-form-label">Counterparty Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="counterparty_name" minlength="5" value="{{nom.counterparty_name}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Save Nomination</button>
+                <button type="button" class="delete-nom-btn">Delete Nomination</button>
+            </div>
+        </div>
+    </form>
+</article>
+
+<script src="/javascript/edit-nom.js"></script>
+<script src="/javascript/delete-nom.js"></script>

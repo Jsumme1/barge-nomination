@@ -1,0 +1,19 @@
+{{> nom-info nom}}
+<h5>Comments</h5>
+{{#each nom.comments}}
+    <div class="card-text">{{comment_text}}</div>
+    <div class="meta">
+        by {{user.username}} on {{format_date created_at}}
+    </div>
+{{/each}}
+
+
+<form id="comment-form">
+    <div class="mb-3">
+        <textarea id="comment-body" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="add comment" class="btn btn-primary">
+    </div>
+</form>
+<script src="/javascript/comment.js"></script>

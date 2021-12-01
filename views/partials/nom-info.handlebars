@@ -1,0 +1,18 @@
+<div class="card border-dark mb-3">
+    <div class="card-body post">
+        <h5 class="card-title title"><a href="/dashboard/nomination/{{id}}">{{title}}</a></h5>
+        <div class="card-text">Barge Name: {{barge_name}}</div>
+        <div class="card-text">Move Date: {{move_date}}</div>
+        <div class="card-text">Quantity: {{quantity}}</div>
+        <div class="card-text">Product Name: {{product_name}}</div>
+        <div class="card-text">Tank Number: {{tank_number}}</div>
+        <div class="card-text">Inspector Name: {{inspector_name}}</div>
+        <div class="card-text">Counterparty Name: {{counterparty_name}}</div>
+        <div class="meta">
+            by {{user.username}} on {{format_date created_at}}
+            <a href="/dashboard/nomination/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
+        <div class="edit-link"><a href="/dashboard/edit/{{id}}">Edit Nomination</a></div>
+    </div>
+</div>
+

@@ -109,11 +109,11 @@ main {
   color: #3486eb;
 }
 
-.delete-post-btn {
+.delete-nom-btn {
   background-color: #d41414;
 }
 
-.delete-post-btn:hover {
+.delete-nom-btn:hover {
   background-color: #ff643d;
 }
 
@@ -130,7 +130,7 @@ main {
 
 .edit-link {
   display: block;
-  margin: -1.5% 0 2% 0;
+  margin: 0 0 2% 0;
 }
 
 .upvote-btn {
