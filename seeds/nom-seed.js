@@ -2,8 +2,8 @@ const { Nomination } = require("../models");
 
 //  nomination fields to be drop down:
 // product_name: regular gasoline, premium gasoline, blendstocks
-//  inspector_name: AmSpec, Inspectorate, Camin, Intertek
-//  counterparty_name: Phillips 66, BP, Global, GEW, ATMI
+//  inspector_name: AmSpec, Inspectorate, Camin, Intertek, NMK
+//  counterparty_name: Phillips 66, BP, Global, GEW, ATMI, Koch
 
 const nomdata = [
   {
