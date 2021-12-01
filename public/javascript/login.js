@@ -24,7 +24,9 @@ async function loginFormHandler(event) {
 
 async function signupFormHandler(event) {
   event.preventDefault();
-
+  const role = document.querySelector("#role-signup").value.trim();
+  const lastname = document.querySelector("#lastname-signup").value.trim();
+  const firstname = document.querySelector("#firstname-signup").value.trim();
   const username = document.querySelector("#username-signup").value.trim();
   const email = document.querySelector("#email-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
@@ -36,6 +38,10 @@ async function signupFormHandler(event) {
         username,
         email,
         password,
+        firstname,
+        lastname,
+        role,
+
       }),
       headers: { "Content-Type": "application/json" },
     });

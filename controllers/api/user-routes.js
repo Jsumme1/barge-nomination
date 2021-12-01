@@ -48,11 +48,14 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234', role: 'role'}
   User.create({
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    role: req.body.role
   })
     .then((dbUserData) => {
       req.session.save(() => {
