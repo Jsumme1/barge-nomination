@@ -129,11 +129,13 @@ router.get("/search/counterparty", (req, res) => {
     });
 });
 
-// get single nom by movement date
+
+// get single nom by inspector name
 router.get("/search/inspector", (req, res) => {
   Nomination.findOne({
     where: {
       inspector_name: req.query.inspector,
+
     },
     include: [
       {
@@ -160,7 +162,7 @@ router.get("/search/inspector", (req, res) => {
       if (!dbNominationData) {
         res
           .status(404)
-          .json({ message: "No no nominations found with this movement date" });
+          .json({ message: "No nominations found with this inspector name" });
         return;
       }
 
