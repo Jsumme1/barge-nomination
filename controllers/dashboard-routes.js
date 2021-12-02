@@ -65,7 +65,7 @@ router.get("/nomination/:id", (req, res) => {
   })
       .then((dbNominationData) => {
         if (!dbNominationData) {
-          res.status(404).json({ message: "No post found with this id" });
+          res.status(404).json({ message: "No nomination found with this id" });
           return;
         }
 
