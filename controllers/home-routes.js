@@ -82,7 +82,7 @@ router.get("/nomination/:id", (req, res) => {
     });
 });
 
-// get single nom by counterparty
+// get all noms by counterparty
 router.get("/search/counterparty", (req, res) => {
   Nomination.findOne({
     where: {
@@ -130,7 +130,7 @@ router.get("/search/counterparty", (req, res) => {
 });
 
 
-// get single nom by inspector name
+// get all noms by inspector name
 router.get("/search/inspector", (req, res) => {
   Nomination.findOne({
     where: {
