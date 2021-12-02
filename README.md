@@ -23,7 +23,10 @@ In the world of commodities trading (in partcular oil and gas), terminals are th
 All nominations can be commented on by all user type - terminal, scheduler and inspector. This allows for communication between all three parties and can include acknowledgements of receipt or specific instructions.
 
 ## Images 
-![Example of command line output](images\ViewImages.JPG)
+![Home Page](https://github.com/Jsumme1/barge-nomination/blob/main/public/assets/HomePage.JPG)
+![Nomination Creation](https://github.com/Jsumme1/barge-nomination/blob/main/public/assets/NomCreate.JPG)
+![Single Nom](https://github.com/Jsumme1/barge-nomination/blob/main/public/assets/SingleNom.JPG)
+
 
 ## Contributions
 Made by Jennifer Devane, Daniel Allen and Julie Summers
