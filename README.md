@@ -6,8 +6,8 @@
 * [Installation](#installation)
 * [Deployed Link](#deployed)
 * [Usage](#usage)
+* [Images](#images)
 * [Contributions](#contributions)
-* [Video Link](#video)
 * [Software](#software)
 * [Questions](#questions)
 
@@ -22,6 +22,8 @@ https://barge-nomination-cci.herokuapp.com
 In the world of commodities trading (in partcular oil and gas), terminals are third party companies that provide storage facilities for the physical product with is traded on open markets. The terminals need a common customer interface as they typically have multiple customers with multiple tanks at their terminal. The app provides a clean and consise interface for the customer to direct the terminal what to do (in this case a barge nomination) by the customer entering a barge nomination with all the applicable parameters. All physical commodity moves require a third party inspection company on every movement to be the final arbiter of quantity and qulity - this is the third role in the system. This app allows for the customer user - or scheduler- to create, delete, update and comment on a nomination. The inspection company and terminal can look at all the nominations and sort them by counterparty (customer) or inspection company.
 All nominations can be commented on by all user type - terminal, scheduler and inspector. This allows for communication between all three parties and can include acknowledgements of receipt or specific instructions.
 
+## Images 
+![Example of command line output](images\ViewImages.JPG)
 
 ## Contributions
 Made by Jennifer Devane, Daniel Allen and Julie Summers
