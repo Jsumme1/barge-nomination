@@ -1,7 +1,8 @@
 const router = require("express").Router();
+const { Sequelize } = require("sequelize/dist");
 const sequelize = require("../config/connection");
 const { Nomination, User, Comment } = require("../models");
-
+const Op = Sequelize.Op
 // get all nominations for homepage
 router.get("/", (req, res) => {
   console.log("======================");
@@ -82,10 +83,10 @@ router.get("/nomination/:id", (req, res) => {
 });
 
 // get single nom by counterparty
-router.get("/nomination/:counterparty_name", (req, res) => {
+router.get("/search/counterparty", (req, res) => {
   Nomination.findOne({
     where: {
-    counterparty_name: req.params.counterparty_name,
+    counterparty_name: req.query.counterparty_name,
     },
     include: [
       {
@@ -96,6 +97,7 @@ router.get("/nomination/:counterparty_name", (req, res) => {
           "nomination_id",
           "user_id",
           "created_at",
+          
         ],
         include: {
           model: User,
@@ -127,11 +129,13 @@ router.get("/nomination/:counterparty_name", (req, res) => {
     });
 });
 
+
 // get single nom by inspector name
-router.get("/nomination/:inspector_name", (req, res) => {
+router.get("/search/inspector", (req, res) => {
   Nomination.findOne({
     where: {
-      inspector_name: req.params.inspector_name,
+      inspector_name: req.query.inspector,
+
     },
     include: [
       {
